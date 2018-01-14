@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/maven-mongo-grid-fs/maven-mongo-grid-fs.iml" filepath="$PROJECT_DIR$/maven-mongo-grid-fs/maven-mongo-grid-fs.iml" />
+      <module fileurl="file://$PROJECT_DIR$/spring-mongodb-jar2step/spring-boot-mongodb-java2step.iml" filepath="$PROJECT_DIR$/spring-mongodb-jar2step/spring-boot-mongodb-java2step.iml" />
+      <module fileurl="file://$PROJECT_DIR$/spring-mongo-grid-fs/spring-mongo-grid-fs.iml" filepath="$PROJECT_DIR$/spring-mongo-grid-fs/spring-mongo-grid-fs.iml" />
+      <module fileurl="file://$PROJECT_DIR$/spring-mongo-grid-fs-api/spring-mongo-grid-fs-api.iml" filepath="$PROJECT_DIR$/spring-mongo-grid-fs-api/spring-mongo-grid-fs-api.iml" />
+      <module fileurl="file://$PROJECT_DIR$/spring-mongo-grid-fs-api/spring-mongo-grid-fs-api (1).iml" filepath="$PROJECT_DIR$/spring-mongo-grid-fs-api/spring-mongo-grid-fs-api (1).iml" />
+      <module fileurl="file://$PROJECT_DIR$/spring-mongo-master.iml" filepath="$PROJECT_DIR$/spring-mongo-master.iml" />
+      <module fileurl="file://$PROJECT_DIR$/spring-mongodb-jar2step-part2/spring-mongodb-jar2step-part2.iml" filepath="$PROJECT_DIR$/spring-mongodb-jar2step-part2/spring-mongodb-jar2step-part2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/spring-reactive-mongodb-jar2step/spring-reactive-mongodb-jar2step.iml" filepath="$PROJECT_DIR$/spring-reactive-mongodb-jar2step/spring-reactive-mongodb-jar2step.iml" />
+    </modules>
+  </component>
+</project>
