@@ -1,9 +1,9 @@
 package com.park.spring.mongo.grid.fs.springmongogridfs.controller;
 
 import com.park.spring.mongo.grid.fs.springmongogridfs.model.MyFsChunks;
-import com.park.spring.mongo.grid.fs.springmongogridfs.model.MyFsChunksRepository;
+import com.park.spring.mongo.grid.fs.springmongogridfs.repository.MyFsChunksRepository;
 import com.park.spring.mongo.grid.fs.springmongogridfs.model.MyFsFile;
-import com.park.spring.mongo.grid.fs.springmongogridfs.model.MyFsFileRepository;
+import com.park.spring.mongo.grid.fs.springmongogridfs.repository.MyFsFileRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -28,7 +28,7 @@ public class ShowFileController {
         return myFsFileRepository.findAll();
     }
 
-    @GetMapping("/files/{filename}")
+    @GetMapping("/files/{filename:.+}")
     public MyFsFile getFile(@PathVariable("filename") final String filename) {
         return myFsFileRepository.findByFilename(filename);
     }

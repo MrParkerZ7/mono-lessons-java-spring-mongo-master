@@ -1,6 +1,6 @@
 package com.park.spring.mongo.grid.fs.springmongogridfs.component;
 
-import com.park.spring.mongo.grid.fs.springmongogridfs.model.MyFsFileRepository;
+import com.park.spring.mongo.grid.fs.springmongogridfs.repository.MyFsFileRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;

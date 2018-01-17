@@ -1,11 +1,9 @@
 package com.park.spring.mongo.grid.fs.springmongogridfs.controller;
 
-import com.mongodb.client.gridfs.GridFSFindIterable;
 import com.mongodb.client.gridfs.model.GridFSFile;
 import com.mongodb.client.gridfs.model.GridFSUploadOptions;
 import org.bson.Document;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.data.mongodb.gridfs.GridFsCriteria;
 import org.springframework.data.mongodb.gridfs.GridFsResource;
@@ -31,24 +29,7 @@ import java.util.function.Consumer;
 public class FilesController {
 
     @Autowired
-
     private GridFsTemplate gridFsTemplate;
-
-    @GetMapping("/finds")
-    public GridFSFindIterable listAll() {
-        List<String> list = new ArrayList<>();
-        return gridFsTemplate.find(Query.query(Criteria.where(null)));
-    }
-
-    @GetMapping("/find/{filename}")
-    public GridFSFile getFind(@PathVariable("filename") final String filename) {
-        return gridFsTemplate.findOne(Query.query(Criteria.where("filename").is(filename)));
-    }
-
-    @GetMapping("/find/{filename}/{typeFile}")
-    public GridFSFile getFind(@PathVariable("filename") final String filename, @PathVariable("typeFile") final String typeFile) {
-        return gridFsTemplate.findOne(Query.query(Criteria.where("filename").is(filename + "." + typeFile)));
-    }
 
     @PostMapping // Import file from web page and insert into database
     public HttpEntity<byte[]> upLoad(@RequestParam("file") MultipartFile file) throws ParseException {

@@ -1,5 +1,6 @@
-package com.park.spring.mongo.grid.fs.springmongogridfs.model;
+package com.park.spring.mongo.grid.fs.springmongogridfs.repository;
 
+import com.park.spring.mongo.grid.fs.springmongogridfs.model.MyFsChunks;
 import org.bson.types.ObjectId;
 import org.springframework.data.mongodb.repository.MongoRepository;
 
