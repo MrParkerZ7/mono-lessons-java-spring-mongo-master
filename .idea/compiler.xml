@@ -21,6 +21,7 @@
       <module name="spring-mongo-grid-fs" target="1.8" />
       <module name="spring-mongo-grid-fs-api" target="1.8" />
       <module name="spring-mongo-grid-fs-api (1)" target="1.5" />
+      <module name="spring-mongo-grid-fs-operations" target="1.8" />
       <module name="spring-mongodb-jar2step-part2" target="1.8" />
       <module name="spring-reactive-mongodb-jar2step" target="1.8" />
     </bytecodeTargetLevel>

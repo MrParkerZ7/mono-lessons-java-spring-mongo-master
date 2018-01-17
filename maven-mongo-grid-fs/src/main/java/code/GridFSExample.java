@@ -30,13 +30,13 @@ public class GridFSExample {
         mongoLogger.setLevel(Level.SEVERE);
 
         GridFSExample gridFs = new GridFSExample();
-        ObjectId babyBoyObjectId = gridFs.upload("maven-mongo-grid-fs/darkness.jpg", "darkness");
-        ObjectId babyGirlObjectId = gridFs.upload("maven-mongo-grid-fs/lightness.jpg", "lightness");
+        ObjectId darkObjectId = gridFs.upload("maven-mongo-grid-fs/darkness.jpg", "darkness");
+        ObjectId lightObjectId = gridFs.upload("maven-mongo-grid-fs/lightness.jpg", "lightness");
         gridFs.findAll();
-        gridFs.find(babyGirlObjectId);
+        gridFs.find(lightObjectId);
         gridFs.download("darkness", "maven-mongo-grid-fs/new-darkness.jpg");
-        gridFs.rename(babyBoyObjectId, "re-darkness");
-        gridFs.delete(babyBoyObjectId);
+        gridFs.rename(darkObjectId, "re-darkness");
+        gridFs.delete(darkObjectId);
         gridFs.findAll();
     }
 
@@ -77,12 +77,9 @@ public class GridFSExample {
             MongoDatabase database = mongoClient.getDatabase("MavenMongoGridFs");
             GridFSBucket gridBucket = GridFSBuckets.create(database);
 
-            gridBucket.find().forEach(new Block<GridFSFile>() {
-                @Override
-                public void apply(final GridFSFile gridFSFile) {
-                    System.out.println("File Name:- " + gridFSFile.getFilename());
-                    System.out.println("Meta Data:- " + gridFSFile.getMetadata());
-                }
+            gridBucket.find().forEach((Block<GridFSFile>) gridFSFile -> {
+                System.out.println("File Name:- " + gridFSFile.getFilename());
+                System.out.println("Meta Data:- " + gridFSFile.getMetadata());
             });
 
         } catch (Exception e) {
