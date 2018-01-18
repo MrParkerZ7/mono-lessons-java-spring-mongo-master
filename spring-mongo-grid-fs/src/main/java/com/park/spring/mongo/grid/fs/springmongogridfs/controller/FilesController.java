@@ -2,7 +2,6 @@ package com.park.spring.mongo.grid.fs.springmongogridfs.controller;
 
 import com.mongodb.client.gridfs.model.GridFSFile;
 import com.mongodb.client.gridfs.model.GridFSUploadOptions;
-import com.mongodb.gridfs.GridFS;
 import org.bson.Document;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.query.Query;
@@ -29,13 +28,12 @@ import java.util.function.Consumer;
 @RequestMapping("/files")
 public class FilesController {
 
-    private GridFS gridFS;
-
     @Autowired
     private GridFsTemplate gridFsTemplate;
 
     @PostMapping // Import file from web page and insert into database
     public HttpEntity<byte[]> upLoad(@RequestParam("file") MultipartFile file) throws ParseException {
+        System.out.println(file.getSize());
 
         // Add metadata detail file in fs.file collection
         DateFormat format = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'", Locale.ENGLISH);
@@ -45,7 +43,8 @@ public class FilesController {
                         .append("upload_date", format.parse("2016-09-01T00:00:00Z")) // First argument is field name second is detail
                         .append("content_type", "image/jpg"));
         try {
-            gridFsTemplate.store(file.getInputStream(), file.getOriginalFilename(), file.getContentType(), uploadOptions); // Or use default file.getContentType() To set detail from file
+            gridFsTemplate.store(file.getInputStream(), file.getOriginalFilename(), file.getContentType(), uploadOptions);
+
             String resp = "<script>window.location = '/';</script>";
             return new HttpEntity<>(resp.getBytes());
         } catch (IOException e) {
@@ -84,5 +83,12 @@ public class FilesController {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
+
+    @GetMapping("/delete/{filename:.+}")
+    public String deleteFile(@PathVariable("filename") final String filename) {
+        gridFsTemplate.delete(Query.query(GridFsCriteria.whereFilename().is(filename)));
+        return "Delete File " + filename + " Successful";
+    }
+
 
 }
