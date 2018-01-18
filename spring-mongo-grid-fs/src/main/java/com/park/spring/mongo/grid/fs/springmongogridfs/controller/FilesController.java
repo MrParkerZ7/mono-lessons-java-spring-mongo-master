@@ -2,6 +2,7 @@ package com.park.spring.mongo.grid.fs.springmongogridfs.controller;
 
 import com.mongodb.client.gridfs.model.GridFSFile;
 import com.mongodb.client.gridfs.model.GridFSUploadOptions;
+import com.mongodb.gridfs.GridFS;
 import org.bson.Document;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.query.Query;
@@ -27,6 +28,8 @@ import java.util.function.Consumer;
 @RestController
 @RequestMapping("/files")
 public class FilesController {
+
+    private GridFS gridFS;
 
     @Autowired
     private GridFsTemplate gridFsTemplate;
